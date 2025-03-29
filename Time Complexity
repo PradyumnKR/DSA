@@ -1,0 +1,208 @@
+### Time Complexity
+
+**Definition**: The time complexity is the amount of time it takes to run a code, usually expressed as a function of the size of the input. It should be independent of the machine and the programming language.
+
+**Asymptotic Notations**: Used to express time complexity.
+
+1. **Average Case**: The average time taken by the algorithm to run on a random input of a given size.
+2. **Best Case**: The minimum time taken by the algorithm to run on an input of a given size.
+3. **Worst Case**: The maximum time taken by the algorithm to run on an input of a given size.
+
+### Finding Time Complexity
+
+1. **Introduction to Time Complexity**:
+   - Time complexity is crucial for analyzing algorithms.
+
+2. **Asymptotic Notations**:
+   - Big O notation, Omega notation, and Theta notation with examples.
+
+3. **Finding Time Complexity**:
+   - Identify basic operations.
+   - Count executions as a function of input size.
+   - Use asymptotic notation.
+
+4. **Examples**:
+   - Analyze common algorithms (linear search, binary search, bubble sort).
+   - Discuss nested loops and recursive functions.
+
+5. **Conclusion**:
+   - Importance of understanding time complexity in algorithm design and optimization.
+
+for( int i = 0 ;i<1000;i++){
+    // order of 1 or constant time complexity 
+}
+
+for ( int i = 0 ;i<n ;i++){
+    // order of n or linear time complexity 
+}
+
+for (int i = 0 ;i< n ; i++){
+    for ( int j = 0 ;j<n;j++){
+        //order of n^2 or quadratic time complexity 
+    }
+}
+
+for(int i =0; i<n; i=i+c){
+    // order of n/c or linear time complexity O(n)
+}
+
+for( int i = 0; i<n;i=i+n){
+    // order of 1, or constant
+}
+
+for(int i =1 ;i<n; i =i*c){
+    // order of log(n) or logarithmic time complexity O(log n)
+    // 1 c c^2 c^3 c^4 c^k-1
+    // take log on both sides 
+    // c^k-1 < n 
+    // the loop will run k times 
+    //if c = 1, then it will be infinite
+}
+
+for (int i = n ; i>=0 ;i/c){
+    // order of log(n) or logarithmic time complexity O(log n)
+    // will work same as multiplication
+}
+
+for (int i = 2 ; i<=n ;pow(i,c)){
+    // 2^c , 2^c^c, 2^c^c^c, 2^c^c^c^c,..2^c^k-1
+
+    // 2^c^k-1 < n
+
+    // take log both sides 
+
+    // log(2^c^k-1) <= log(n)
+    // c^k-1 <= log(n)
+    // k <= log(n)/log(c)
+    k<= log(log(n))
+    // if c = 1, then it will be infinite
+            
+    
+    
+}
+
+void fun(int n ){
+    for ( int i = 0 ; i<n;i++){
+        // order of n 
+    }
+
+    for(int j  =n-1; j>=0;j--){
+        // order of n 
+    }
+
+    // parallel loops time complexity is added 
+    // so it will be O(n) + O(n) = 2n = n 
+
+    // if we have n loops then it will be n*n = n^2 or Nested loops 
+
+    // logn + n = n 
+    // log(log(n) + n = n
+    // log(log(n)) + log(n) = log(n)
+}   // n +n^2 = n^2
+    // log(log(n)) + n^2 = n^2
+
+for(int i = 1;i<n; i = i+c){
+    for(int j = 2 ; j<n ; j=pow(j,c)){
+        // nested loops get multiplied 
+        // n * log(log(n))
+        /
+    }
+}
+// together next 2
+void fun2(int n ){
+    for(int i =0;i<n;i++){
+        // O(1) statements
+    }
+}
+
+void fun(int n ){
+    for(int i =0;i<n;i++){
+        fun2(n)
+    }
+}
+time complexity = n*n = n^2
+
+//////////////////////////////////
+
+for ( int i = 0;i<=n ;i++){
+    for(int j = 0; j<= i ;j++){
+        cout<<"Hello"
+    }
+}
+
+time complexity = here it will for first time 1, then 2 time , then 3, and so on till n 
+
+or the sum of n no. 
+
+n(n+1)/2 = n^2 + n / 2 so highest order is n^2 
+
+////////////////////////////////////////
+//Recusive function time complexity is added at each recursive call so it will be O(n) + O(n)
+void fun(int n ){
+    if(n<=0) return ; 
+    fun(n-1);
+    fun(n-1);
+}
+
+                                    fun(4)
+                        fun(3)                  fun(3)
+                fun(2)        fun(2)       fun(2)       fun(2)
+            fun(1) fun(1) fun(1) fun(1) fun(1) fun(1) fun(1) fun(1)
+
+            T(n) = T(n-1) + T(n-1) +C
+            T(n) = 2T(n-1) + C
+///////////////////////////////////////////////////
+ void fun(int n ){
+    if(n<=0) return ; 
+    fun(n/2);
+    fun(n/2);
+
+            }
+
+        
+        T(n) = T(n/2) + T(n/2) + c.n
+
+        sum at all levels of the tree is Cn
+
+        now we have to find the no. of levels
+
+        since we are dividing by 2, we know it works log(n) times 
+         
+        so the time complexity will be "cn.logn"
+
+        Study recurrence relation to find time complexity of recursive function. 
+
+///////////////////////////////////////////////////////////////////////
+
+T(n) = T(n-1) + T(n-1) + C 
+
+here we have at each level is (2n)C , 2c, 4c, 8c, 16c, 32c, 64c,...so it is like gp 
+no. of levels are "n"
+a(r^n-1)/r-1 => c(1(2^n -1)/2-1) 
+so time complexity is O(2^n)
+
+////////////////////////////////////////////////////////////////////////
+
+T(n) = T(n/2) + T(n/2) +c 
+
+                                c 
+                            c        c          - 2c |
+                        c     c    c     c      - 4c |
+                    c     c c   c c   c  c   c   -8c |
+                                                     n
+                    
+            ==> O(n)
+
+//////////////////////////////////////////////////////////////////////////
+
+T(n) = T(n/2) + T(n/4) + c.n
+
+                            cn 
+          c(n/2)                          c(n/4)
+ c(n/4)       c(n/8)                  c(n/8)    c(n/16) --- this side will be terminated before the other side
+                     
+ cn + 3cn/4 + 9cn/16 + ....... to infinity 
+
+ formula of GP = r/ r-1 when r>1 
+
+ cn/ (1-3/4) = O(n)
